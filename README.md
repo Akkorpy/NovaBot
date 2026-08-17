@@ -32,3 +32,7 @@ SLACK_APP_TOKEN=xapp-your-app-token
 NovaBot relies on Slack's Bolt for JavaScript framework to handle Slack Events API over Socket Mode. Using Socket Mode avoids the need for a public HTTP endpoint during local testing while maintaining reliable, real-time response times for slash commands.
 
 External API requests (such as fetching random facts and jokes) are handled asynchronously via Axios to ensure non-blocking event loops and smooth command handling.
+
+## Credits & Acknowledgements
+* `Slack Bolt for JavaScript` — Framework for building Slack apps.
+* `Cat Facts API` — Provider for random cat facts.
