@@ -14,8 +14,9 @@ app.command("/novabot-help", async ({ ack, respond }) => {
     text:
 `Available Commands:
 /novabot-ping - Check bot latency
-/novabot-catfact - Get a cat fact`
-  });
+/novabot-catfact - Get a cat fact
+/novabot-joke - Get a random joke`
+ });
 });
 
 app.command("/novabot-ping", async ({ command, ack, respond }) => {
@@ -55,4 +56,4 @@ ${response.data.punchline}`
   } catch (err) {
     await respond({ text: "Failed to fetch a joke." });
   }
-});g
+});
