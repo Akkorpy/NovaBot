@@ -8,7 +8,7 @@ const app = new App({
   socketMode: true
 });
 
-app.command("/novabot-help", async ({ command, ack, respond }) => {
+app.command("/novabot-help", async ({ ack, respond }) => {
   await ack();
   await respond({
     text:
