@@ -13,7 +13,6 @@ node index.js
 * `/novabot-ping` - Checks the bot's response time.
 * `/novabot-catfact` - Fetches a random fun fact about cats.
 * `/novabot-joke` - Delivers a random joke directly to the channel.
-* `/novabot-help` - Shows a list of all available commands and instructions.
 
 ## Local Development
 
