@@ -14,9 +14,8 @@ app.command("/novabot-help", async ({ ack, respond }) => {
     text:
 `Available Commands:
 /novabot-ping - Check bot latency
-/novabot-catfact - Get a cat fact
-/novabot-joke - Get a random joke`
- });
+/novabot-catfact - Get a cat fact`
+  });
 });
 
 app.command("/novabot-ping", async ({ command, ack, respond }) => {
