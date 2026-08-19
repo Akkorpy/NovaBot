@@ -8,13 +8,14 @@ const app = new App({
   socketMode: true
 });
 
-app.command("/novabot-help", async ({ ack, respond }) => {
+app.command("/novabot-info", async ({ ack, respond }) => {
   await ack();
   await respond({
     text:
 `Available Commands:
 /novabot-ping - Check bot latency
-/novabot-catfact - Get a cat fact`
+/novabot-catfact - Get a cat fact
+/novabot-joke - Get a random joke`
   });
 });
 
