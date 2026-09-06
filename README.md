@@ -14,6 +14,7 @@ node index.js
 * `/novabot-catfact` - Fetches a random fun fact about cats.
 * `/novabot-joke` - Delivers a random joke directly to the channel.
 * `/novabot-quote` - Fetches an inspiring quote with author.
+* `/novabot-help` - Shows all the available commands.
 
 ## Local Development
 
