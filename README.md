@@ -1,7 +1,7 @@
 ## NovaBot
 A Slack bot designed to deliver random cat facts, check latensy, and provide quick command help inside your workspace.
 
-<img width="1036" height="462" alt="image" src="https://github.com/user-attachments/assets/34a79353-1550-4e59-8d39-050b2b5ee135" />
+<img width="1408" height="683" alt="image" src="https://github.com/user-attachments/assets/3c12fbbd-9beb-4c4f-8c38-b3a3221ba476" />
 
 ## Quick Start
 ```bash
@@ -13,6 +13,7 @@ node index.js
 * `/novabot-ping` - Checks the bot's response time.
 * `/novabot-catfact` - Fetches a random fun fact about cats.
 * `/novabot-joke` - Delivers a random joke directly to the channel.
+* `/novabot-quote` - Fetches an inspiring quote with author.
 
 ## Local Development
 
