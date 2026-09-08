@@ -125,38 +125,6 @@ app.command("/novabot-weather", async ({ command, ack, respond }) => {
   }
 });
 
-app.command("/novabot-poll", async ({ command, ack, respond, client }) => {
-  await ack();
-
-  if (!question) {
-    await respond({ text: "Please provide a question for the poll." });
-    return;
-  }
-
-  try {
-    const result = await client.chat.postMessage({
-      channel: command.channel_id,
-      text: `Poll: ${question}`,
-    });
-
-    await client.reactions.add({
-      name: "thumbsup",
-      channel: result.channel,
-      timestamp: result.ts,
-    });
-
-    await client.reactions.add({
-      name: "thumbsdown",
-      channel: result.channel,
-      timestamp: result.ts,
-    });
-
-    await respond({ text: "Poll created successfully!" });
-  } catch (err) {
-    await respond({ text: "Failed to create poll." });
-  }
-});
-
 app.command("/novabot-reminder", async ({ command, ack, respond }) => {
   await ack();
 
@@ -187,34 +155,6 @@ app.command("/novabot-reminder", async ({ command, ack, respond }) => {
       text: `Reminder: ${message}`
     });
   }, ms);
-});
-
-app.command("/novabot-translate", async ({ command, ack, respond }) => {
-  await ack();
-
-  try {
-    const parts = command.text.split(" ");
-    const targetLang = parts[0];
-    const textToTranslate = parts.slice(1).join(" ");
-
-    if (!targetLang || !textToTranslate) {
-      await respond({ text: "Please provide a target language and text to translate." });
-      return;
-    }
-
-    const response = await axios.post(
-      `https://translate.argosopentech.com/translate`,
-      {
-        q: textToTranslate,
-        source: "auto",
-        target: targetLang
-      }
-    );
-
-    await respond({ text: `Translated Text:\n${response.data.translatedText}` });
-  } catch (err) {
-    await respond({ text: "Failed to translate the text." });
-  }
 });
 
 app.command("/novabot-exchangerate", async ({ command, ack, respond }) => {
