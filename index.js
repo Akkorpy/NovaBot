@@ -18,7 +18,6 @@ app.command("/novabot-help", async ({ ack, respond }) => {
 /novabot-joke - Get a random joke
 /novabot-timer [duration] - Start a timer (default 25 minutes)
 /novabot-weather [city] - Get weather information for a city
-/novabot-poll [question] - Create a poll
 /novabot-reminder [time] [message] - Set a reminder
 /novabot-translate [target_language] [text] - Translate text to a target language
 /novabot-exchangerate [from_currency] [to_currency] [amount] - Get exchange rate between two currencies
@@ -186,5 +185,48 @@ app.command("/novabot-exchangerate", async ({ command, ack, respond }) => {
     await respond({ text: `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}` });
   } catch (err) {
     await respond({ text: "Failed to fetch exchange rates." });
+  }
+});
+
+app.command("/novabot-translate", async ({ command, ack, respond }) => {
+  await ack();
+
+  const text = command.text.trim();
+  const parts = text.split(/\s+/);
+
+  if (parts.length < 2) {
+    await respond({ text: "Please provide a target language and text to translate." });
+    return;
+  }
+
+  const targetLanguage = parts[0].toUpperCase();
+  const supportedLanguages = { ENG: "en", ESP: "es", FRA: "fr", DEU: "de", ITA: "it", POR: "pt", RUS: "ru", CHI: "zh", JPN: "ja", KOR: "ko" };
+
+  const targetLanguageCode = supportedLanguages[targetLanguage];
+
+  if (!targetLanguageCode) {
+    await respond({ text: `Unsupported target language. Supported languages are: ${Object.keys(supportedLanguages).join(", ")}` });
+    return;
+  }
+
+  const textToTranslate = parts.slice(1).join(" ");
+
+  try {
+    const response = await axios.get(
+      `https://api.mymemory.translated.net/get`,
+      {
+        params: {
+          q: textToTranslate,
+          langpair: `autodetect|${targetLanguageCode}`
+        },
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+
+    const translatedText = response.data.responseData.translatedText;
+
+    await respond({ text: `Translated Text:\n${translatedText}` });
+  } catch (err) {
+    await respond({ text: "Failed to translate the text." });
   }
 });

@@ -15,6 +15,11 @@ node index.js
 * `/novabot-joke` - Delivers a random joke directly to the channel.
 * `/novabot-quote` - Fetches an inspiring quote with author.
 * `/novabot-help` - Shows all the available commands.
+* `/novabot-timer` - Sets a timer.
+* `/novabot-reminder` - Sets a reminder.
+* `/novabot-weather` - Gets weather information for a city.
+* `/novabot-translate` - Translates text to a target language.
+* `/novabot-exchangerate` - Shows echange rate between two currencies.
 
 ## Local Development
 
