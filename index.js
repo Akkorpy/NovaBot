@@ -18,6 +18,10 @@ app.command("/novabot-help", async ({ ack, respond }) => {
 /novabot-joke - Get a random joke
 /novabot-timer [duration] - Start a timer (default 25 minutes)
 /novabot-weather [city] - Get weather information for a city
+/novabot-poll [question] - Create a poll
+/novabot-reminder [time] [message] - Set a reminder
+/novabot-translate [target_language] [text] - Translate text to a target language
+/novabot-exchangerate [from_currency] [to_currency] [amount] - Get exchange rate between two currencies
 /novabot-quote - Get a random quote`
   });
 });
